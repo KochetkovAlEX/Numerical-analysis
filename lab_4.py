@@ -65,8 +65,10 @@ def newton_system(F, start_data, eps=1e-5, N=25):
     return N, history_data
 
 
-def check_with_real_roots(F, history_data, eps):
-    "Посчитать значение системы и сравнить со значением по невязке"
+def find_and_check_solution(F):
+    # TODO: "Посчитать значение системы и сравнить со значением по невязке"
+    roots = sp.nonlinsolve(F, [x, y])
+    print(roots)
     pass
 
 
@@ -80,6 +82,7 @@ def main():
     for F in FUNC_LIST:
         plot(F)
         sp_F = sp.Matrix(F)
+        find_and_check_solution(sp_F)
         try:
             input_data = list(map(float, input("Введите зачения: ").split()))
             while input != "q":
@@ -94,6 +97,8 @@ def main():
                 print("Определитель равен нулю")
             elif isinstance(e, IndexError):
                 break
+            else:
+                continue
 
 
 if __name__ == "__main__":
