@@ -89,7 +89,6 @@ def main():
         print("-" * 10)
         plot(F)
         sp_F = sp.Matrix(F)
-        find_and_check_solution(sp_F)
         try:
             input_data = list(map(float, input("Введите зачения: ").split()))
             while input_data:

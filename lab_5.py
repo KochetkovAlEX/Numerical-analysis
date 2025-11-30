@@ -82,7 +82,7 @@ def runge_kutta_method(y_diff_np, y0, x_values, left, right, n=100):
         K1 = step * y_diff_np(x_values[i], y_values[i])
         K2 = step * y_diff_np(x_values[i] + alpha2 * step, y_values[i] + betta21 * K1)
         K3 = step * y_diff_np(
-            x_values[i] + alpha3 * step, y_values[i] + betta31 * K1 + betta32 * K1
+            x_values[i] + alpha3 * step, y_values[i] + betta31 * K1 + betta32 * K2
         )
         y_values[i + 1] = y_values[i] + p1 * K1 + p2 * K2 + p3 * K3
 
